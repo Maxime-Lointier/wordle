@@ -5,6 +5,6 @@ public class Word {
     }
 
     public Letter guess(String b) {
-        return null;
+        return Letter.valueOf("INCORRECT");
     }
 }

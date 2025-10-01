@@ -1,8 +1,11 @@
 package r5a08.example.project;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 public class WordTest {
+
+    @Test
     public void should_check_one_incorrect_letter(){
         //arrange
         Word word = new Word("E"); // Le mot a déviner fait une lettre
@@ -10,7 +13,7 @@ public class WordTest {
         Letter score = word.guess("B"); // tentative du joueur
 
         Letter expected = Letter.valueOf("INCORRECT");
-        Assertions.assertEquals(expected, score);
+        Assertions.assertSame(expected, score);
 
 
 
