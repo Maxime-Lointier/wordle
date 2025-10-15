@@ -27,14 +27,17 @@ public class Score {
         }
         else {
 
-            for (int i =0; i < correct.length();i++){
-                if (attemptIsCorrect(i, attempt)){
-                    results[i] = Letter.CORRECT;
-                    System.out.println(attempt.charAt(i));
-                }
-                else {
-                    results[i] = Letter.INCORRECT; // le plus simple la on prend pas compte des part correcte
-                }
+            VerifyEachCharacter(attempt);
+        }
+    }
+
+    private void VerifyEachCharacter(String attempt) {
+        for (int i =0; i < correct.length();i++){
+            if (attemptIsCorrect(i, attempt)){
+                results[i] = Letter.CORRECT;
+            }
+            else {
+                results[i] = Letter.INCORRECT; // le plus simple la on prend pas compte des part correcte
             }
         }
     }

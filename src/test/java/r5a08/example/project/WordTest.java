@@ -46,6 +46,5 @@ public class WordTest {
         Letter[] expected = { Letter.CORRECT, Letter.CORRECT };
         //Assert
         assertThat(actual).isEqualTo(expected);
-
     }
 }
