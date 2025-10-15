@@ -1,6 +1,5 @@
 package r5a08.example.project;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -46,5 +45,18 @@ public class WordTest {
         Letter[] expected = { Letter.CORRECT, Letter.CORRECT };
         //Assert
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void Should_check_one_PART_CORRECT_letter(){ //pas bon pr le moment
+        Word word = new Word("BA");
+
+        //Act
+        Score score = word.guess("AB");
+        Letter[] actual = score.letters();
+        Letter[] expected = { Letter.PART_CORRECT, Letter.PART_CORRECT };
+        //Assert
+        assertThat(actual).isEqualTo(expected);
+
     }
 }
