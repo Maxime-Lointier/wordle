@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Word {
-    public ArrayList<String> word;
-    public Word(String e) {
-        this.word = new ArrayList<>(Arrays.asList(e));    }
+    private String word;
 
-    public Letter guess(String attempt) {
+    public Word(String correctWord) {
+        this.word = correctWord;
+    }
+
+    public Score guess(String attempt) {
         Score score = new Score(word);
 
-        /* Calcule le score pour la lettre d'indice 0
-           de la tentative
-         */
-        return score.assess(0, attempt);
+        score.assess(0, attempt);
 
+        return score;
     }
 }

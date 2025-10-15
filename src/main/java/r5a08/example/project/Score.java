@@ -4,17 +4,23 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Score {
-    private final ArrayList<String> word;
-    public Score(ArrayList<String> word) {
-        this.word = word;
+
+    private final String correct;
+    private Letter result = Letter.INCORRECT;
+
+    public Score(String correct) {
+        this.correct=correct;
     }
 
-    public Letter assess(int i, String attempt) {
-            if (!Objects.equals(word.get(i), attempt)) {
-                return Letter.INCORRECT;
-            } else {
-                return Letter.CORRECT;
-            }
+    public Letter letter(int i) {
+        return result;
+    }
+
+    public void assess(int position, String attempt) {
+        if (this.correct.charAt(position)==attempt.charAt(position)){
+            result = Letter.CORRECT;
         }
     }
+}
+
 
