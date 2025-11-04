@@ -90,14 +90,14 @@ public class WordTest {
     }
 
     @Test
-    public void Should_check_complete_repetitive_word(){ //Test inccorect car il devrait indiquer que le 2eme L est incorrecte, on va fixer cela
+    public void Should_check_complete_repetitive_word(){ //Test correct
         //Arrange
-        Word word = new Word("FLEUR");
+        Word word = new Word("LLEUR");
 
         //Act
-        Score score = word.guess("LLAMA");
+        Score score = word.guess("RELLE");// lettre mal placer et en surplus
         Letter[] actual = score.letters();
-        Letter[] expected = { Letter.PART_CORRECT, Letter.INCORRECT, Letter.INCORRECT, Letter.INCORRECT, Letter.INCORRECT  };
+        Letter[] expected = { Letter.PART_CORRECT, Letter.PART_CORRECT, Letter.PART_CORRECT, Letter.PART_CORRECT, Letter.INCORRECT  };
         //Assert
         assertThat(actual).isEqualTo(expected);
     }

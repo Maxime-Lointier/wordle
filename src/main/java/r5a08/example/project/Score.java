@@ -1,5 +1,8 @@
 package r5a08.example.project;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class Score {
 
     private final String correct;
@@ -24,20 +27,59 @@ public class Score {
     }
 
     private void VerifyEachCharacter(String attempt) {
-        for (int i =0; i < correct.length();i++){
-            if (attemptIsCorrect(i, attempt) == 1){
+        for (int i = 0; i < correct.length(); i++) {
+            if (attemptIsCorrect(i, attempt) == 1) {
                 results[i] = Letter.CORRECT;
             }
-            else {
-                if (attemptIsCorrect(i,attempt) == -1) {
-                    results[i] = Letter.PART_CORRECT;
-                }
-                else {
+        }
+        for (int i = 0; i < correct.length(); i++) {
+            if (results[i] != Letter.CORRECT) { // ceux qui ne sont Pas déjà CORRECT
+                char attemptChar = attempt.charAt(i);
+
+                if (correct.contains(String.valueOf(attemptChar))) {
+
+                    int availableInTarget = countCharInString(correct, attemptChar);
+                    int alreadyUsed = countAlreadyUsedChar(attemptChar, i, attempt);
+
+                    if (alreadyUsed < availableInTarget) {
+                        results[i] = Letter.PART_CORRECT;
+                    } else {
+                        results[i] = Letter.INCORRECT;
+                    }
+                } else {
                     results[i] = Letter.INCORRECT;
                 }
             }
         }
     }
+
+    private int countCharInString(String str, char c) {
+        int count = 0;
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private int countAlreadyUsedChar(char c, int currentPos, String attempt) {
+        int count = 0;
+        for (int i = 0; i < currentPos; i++) {
+            if (attempt.charAt(i) == c &&
+                    (results[i] == Letter.CORRECT || results[i] == Letter.PART_CORRECT)) {
+                count++;
+            }
+        }
+        for (int i = currentPos + 1; i < results.length; i++) {
+            if (attempt.charAt(i) == c && results[i] == Letter.CORRECT) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+
 
     private int attemptIsCorrect(int position, String attempt) {
         if (        this.correct.charAt(position) == attempt.charAt(position)){
