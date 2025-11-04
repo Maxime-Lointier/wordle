@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="r5a08.example.project.WordTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-04T16:05:30" hostname="DESKTOP-UEKMA13" time="0.074">
+<testsuite name="r5a08.example.project.WordTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2025-11-04T16:10:16" hostname="DESKTOP-UEKMA13" time="0.106">
   <properties/>
-  <testcase name="Should_check_complete_correct_word()" classname="r5a08.example.project.WordTest" time="0.074"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="should_check_one_incorrect_letter()" classname="r5a08.example.project.WordTest" time="0.076"/>
+  <testcase name="Should_check_complete_correct_word()" classname="r5a08.example.project.WordTest" time="0.013"/>
+  <testcase name="Should_check_two_correct_letter()" classname="r5a08.example.project.WordTest" time="0.001"/>
+  <testcase name="should_check_one_correct_letter()" classname="r5a08.example.project.WordTest" time="0.005"/>
+  <testcase name="Should_check_two_PART_CORRECT_letter()" classname="r5a08.example.project.WordTest" time="0.001"/>
+  <testcase name="Should_check_complete_Part_Correct_word()" classname="r5a08.example.project.WordTest" time="0.0"/>
+  <system-out><![CDATA[[CORRECT]
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

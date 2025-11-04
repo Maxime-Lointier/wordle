@@ -76,4 +76,18 @@ public class WordTest {
         //Assert
         assertThat(actual).isEqualTo(expected);
     }
+    @Test
+    public void Should_check_complete_Part_Correct_word(){
+        //Arrange
+        Word word = new Word("FLEUR");
+
+        //ACT
+        Score score = word.guess("FAIRE");
+        Letter[] actual = score.letters();
+        Letter[] expected = { Letter.CORRECT, Letter.INCORRECT, Letter.INCORRECT, Letter.PART_CORRECT, Letter.PART_CORRECT  };
+        //Assert
+        assertThat(actual).isEqualTo(expected);
+    }
 }
+
+
