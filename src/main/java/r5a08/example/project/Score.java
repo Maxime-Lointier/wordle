@@ -16,19 +16,12 @@ public class Score {
     }
 
     public Letter letter(int i) {
-        return result;
+        return results[i];
     }
 
     public void assess(int position, String attempt) {
-        if (correct.length() <= 1){
-            if (attemptIsCorrect(position, attempt) == 1){
-                result = Letter.CORRECT;
-            }
-        }
-        else {
+        VerifyEachCharacter(attempt);
 
-            VerifyEachCharacter(attempt);
-        }
     }
 
     private void VerifyEachCharacter(String attempt) {
@@ -40,8 +33,10 @@ public class Score {
                 if (attemptIsCorrect(i,attempt) == -1) {
                     results[i] = Letter.PART_CORRECT;
                 }
+                else {
+                    results[i] = Letter.INCORRECT;
+                }
             }
-            results[i] = Letter.INCORRECT;
         }
     }
 

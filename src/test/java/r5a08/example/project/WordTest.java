@@ -2,6 +2,8 @@ package r5a08.example.project;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static r5a08.example.project.Letter.CORRECT;
 
@@ -27,8 +29,9 @@ public class WordTest {
 
         // Act
         Score score = word.guess("E");
-        Letter actual=score.letter(0);
-        Letter expected = CORRECT;
+        Letter[] actual=score.letters();
+        System.out.println(Arrays.toString(actual));
+        Letter[] expected = { Letter.CORRECT};
 
         // Assert
         assertThat(actual).isEqualTo(expected);
@@ -41,14 +44,14 @@ public class WordTest {
 
         //Act
         Score score = word.guess("BA");
-        Letter[] actual = score.letters(); //devrait retourner le score de toute les lettres donc le plus  simple serait un tab de [CORRECT,CORRECT]
+        Letter[] actual=score.letters(); //devrait retourner le score de toute les lettres donc le plus  simple serait un tab de [CORRECT,CORRECT]
         Letter[] expected = { Letter.CORRECT, Letter.CORRECT };
         //Assert
         assertThat(actual).isEqualTo(expected);
     }
 
     @Test
-    public void Should_check_one_PART_CORRECT_letter(){ //pas bon pr le moment
+    public void Should_check_one_PART_CORRECT_letter(){
         Word word = new Word("BA");
 
         //Act
