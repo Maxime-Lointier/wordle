@@ -3,7 +3,6 @@ package r5a08.example.project;
 public class Score {
 
     private final String correct;
-    private Letter result = Letter.INCORRECT;
 
     private Letter[] results;
 

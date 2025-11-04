@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="r5a08.example.project.WordTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-04T15:27:20" hostname="DESKTOP-UEKMA13" time="0.075">
+<testsuite name="r5a08.example.project.WordTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-11-04T16:05:30" hostname="DESKTOP-UEKMA13" time="0.074">
   <properties/>
-  <testcase name="should_check_one_correct_letter()" classname="r5a08.example.project.WordTest" time="0.075"/>
-  <system-out><![CDATA[[CORRECT]
-]]></system-out>
+  <testcase name="Should_check_complete_correct_word()" classname="r5a08.example.project.WordTest" time="0.074"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
