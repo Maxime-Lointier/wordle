@@ -88,6 +88,17 @@ public class WordTest {
         //Assert
         assertThat(actual).isEqualTo(expected);
     }
+
+    @Test
+    public void Should_check_complete_repetitive_word(){ //Test inccorect car il devrait indiquer que le 2eme L est incorrecte, on va fixer cela
+        //Arrange
+        Word word = new Word("FLEUR");
+
+        //Act
+        Score score = word.guess("LLAMA");
+        Letter[] actual = score.letters();
+        Letter[] expected = { Letter.PART_CORRECT, Letter.INCORRECT, Letter.INCORRECT, Letter.INCORRECT, Letter.INCORRECT  };
+        //Assert
+        assertThat(actual).isEqualTo(expected);
+    }
 }
-
-
