@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="r5a08.example.project.WordTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-11-06T09:13:26" hostname="einfolearning" time="0.037">
+  <properties/>
+  <testcase name="should_check_one_incorrect_letter()" classname="r5a08.example.project.WordTest" time="0.026"/>
+  <testcase name="Should_check_complete_correct_word()" classname="r5a08.example.project.WordTest" time="0.004"/>
+  <testcase name="Should_check_two_correct_letter()" classname="r5a08.example.project.WordTest" time="0.0"/>
+  <testcase name="Should_check_complete_repetitive_word()" classname="r5a08.example.project.WordTest" time="0.001"/>
+  <testcase name="should_check_one_correct_letter()" classname="r5a08.example.project.WordTest" time="0.002"/>
+  <testcase name="Should_check_two_PART_CORRECT_letter()" classname="r5a08.example.project.WordTest" time="0.0"/>
+  <testcase name="Should_check_complete_Part_Correct_word()" classname="r5a08.example.project.WordTest" time="0.0"/>
+  <system-out><![CDATA[[CORRECT]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

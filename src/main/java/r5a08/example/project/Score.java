@@ -26,7 +26,7 @@ public class Score {
 
     }
 
-    private void VerifyEachCharacter(String attempt) {
+    public void VerifyEachCharacter(String attempt) {
         for (int i = 0; i < correct.length(); i++) {
             if (attemptIsCorrect(i, attempt) == 1) {
                 results[i] = Letter.CORRECT;
@@ -53,7 +53,7 @@ public class Score {
         }
     }
 
-    private int countCharInString(String str, char c) {
+    public int countCharInString(String str, char c) {
         int count = 0;
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == c) {
@@ -63,7 +63,7 @@ public class Score {
         return count;
     }
 
-    private int countAlreadyUsedChar(char c, int currentPos, String attempt) {
+    public int countAlreadyUsedChar(char c, int currentPos, String attempt) {
         int count = 0;
         for (int i = 0; i < currentPos; i++) {
             if (attempt.charAt(i) == c &&
@@ -81,7 +81,7 @@ public class Score {
 
 
 
-    private int attemptIsCorrect(int position, String attempt) {
+    public int attemptIsCorrect(int position, String attempt) {
         if (        this.correct.charAt(position) == attempt.charAt(position)){
             return 1;
         }
