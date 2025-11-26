@@ -26,7 +26,7 @@ public class Score {
 
     }
 
-    public void VerifyEachCharacter(String attempt) {
+    public void VerifyEachCharacter(String attempt) { //fonction Haut niveau
         for (int i = 0; i < correct.length(); i++) {
             if (attemptIsCorrect(i, attempt) == 1) {
                 results[i] = Letter.CORRECT;
