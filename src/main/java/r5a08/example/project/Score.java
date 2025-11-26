@@ -7,7 +7,7 @@ public class Score {
 
     private final String correct;
 
-    private Letter[] results;
+    private final Letter[] results;
 
     public Score(String correct) {
         this.correct=correct;
@@ -36,20 +36,29 @@ public class Score {
             if (results[i] != Letter.CORRECT) { // ceux qui ne sont Pas déjà CORRECT
                 char attemptChar = attempt.charAt(i);
 
-                if (correct.contains(String.valueOf(attemptChar))) {
+                if (attemptCharacterIsContainedInWord(correct, attemptChar)) {
 
-                    int availableInTarget = countCharInString(correct, attemptChar);
-                    int alreadyUsed = countAlreadyUsedChar(attemptChar, i, attempt);
-
-                    if (alreadyUsed < availableInTarget) {
-                        results[i] = Letter.PART_CORRECT;
-                    } else {
-                        results[i] = Letter.INCORRECT;
-                    }
-                } else {
+                    verifyPartCorrectLetter(attempt, attemptChar, i);
+                }
+                else {
                     results[i] = Letter.INCORRECT;
                 }
             }
+        }
+    }
+
+    private boolean attemptCharacterIsContainedInWord(String correct, char attemptChar) {
+        return correct.contains(String.valueOf(attemptChar));
+    }
+
+    private void verifyPartCorrectLetter(String attempt, char attemptChar, int i) {
+        int availableInTarget = countCharInString(correct, attemptChar);
+        int alreadyUsed = countAlreadyUsedChar(attemptChar, i, attempt);
+
+        if (alreadyUsed < availableInTarget) {
+            results[i] = Letter.PART_CORRECT;
+        } else {
+            results[i] = Letter.INCORRECT;
         }
     }
 
@@ -86,7 +95,7 @@ public class Score {
             return 1;
         }
         else{
-            if ((this.correct.charAt(position) != attempt.charAt(position)) && this.correct.contains(String.valueOf(attempt.charAt(position)))){
+            if ((this.correct.charAt(position) != attempt.charAt(position)) && attemptCharacterIsContainedInWord(this.correct, attempt.charAt(position))){
                 return -1;
 
             }
